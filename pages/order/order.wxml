@@ -1,0 +1,17 @@
+<view class='order' wx:for='{{orderList}}' wx:key='{{index}}'>
+  <view class='orderCode'>
+    订单：{{item.orderCode}}
+    <text class='fr' wx:if='{{item.orderState==1}}'>未支付</text>
+    <text class='fr' wx:if='{{item.orderState==2}}'>已支付</text>
+    <text class='fr' wx:if='{{item.orderState==4}}'>已取消</text>
+  </view>
+  <view class='orderMes'>
+    <view class='orderType'>类型：月卡<text class='fr'>¥{{item.orderPrice}}</text></view>
+    <view wx:if='{{item.orderState==1 || item.orderState==4}}'>有效期：30天</view>
+    <view wx:if='{{item.orderState==2}}'>有效期：{{item.vipStartDate}}至{{item.vipEndDate}}</view>
+  </view>
+  <view class='payMes' wx:if='{{item.orderState==1||item.orderState==2}}'>
+    <button class='pay fr' wx:if='{{item.orderState==1}}'>去支付</button>
+    <view class='invitationCode' wx:if='{{item.orderState==2}}'>邀请码：{{item.vipCode}}</view>
+  </view>
+</view>

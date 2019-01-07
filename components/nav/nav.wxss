@@ -1,0 +1,47 @@
+/* componeten/nav/nav.wxss */
+.nav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  border-top:1px solid #eee;
+  background: #fff;
+  z-index: 9999;
+}
+.navItem{
+  width: 33.333%;
+  float: left;
+  position: relative;
+}
+.navItem image{
+  width: 48rpx;
+  height: 48rpx;
+  margin: 6rpx auto 0;
+  display: block;
+}
+
+.nav .navItem view{
+  text-align: center;
+  width: 100%;
+  float: left;
+  font-size: 24rpx;
+  margin: 0;
+  padding: 0;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: #fff;
+  color: #666;
+}
+.nav .navItem .sele{
+  color: #06c1ae;
+}
+.nav .navItem .getUserInfo{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  opacity: 0;
+}

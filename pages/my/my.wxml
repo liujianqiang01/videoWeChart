@@ -1,0 +1,19 @@
+<view class='user'>
+  <image src='/image/timg.jpg' class='img fl'></image>
+  <view class='fl'>你就是你</view>
+  
+</view>
+
+<view class='list'>
+  <view class='listItem'>帮助中心
+    <image src='/image/gengduo1.png' class='more'></image>
+  </view>
+  <view class='listItem'>我的订单
+    <image src='/image/gengduo1.png' class='more'></image>
+  </view>
+  <view class='listItem'>
+    <button open-type='contact' class='contact'>联系客服</button>
+    <image src='/image/gengduo1.png' class='more'></image>
+  </view>
+</view>
+<nav />

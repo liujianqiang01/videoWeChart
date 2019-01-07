@@ -1,0 +1,17 @@
+<!--componeten/nav/nav.wxml-->
+<view class='nav'>
+  <view class='navItem' bindtap='goHome'>
+    <image src='/image/timg.jpg'></image>
+    <view class='{{route=="pages/index/index"?"sele":""}}'>首页</view>
+  </view>
+  <view class='navItem'>
+    <image src='/image/timg.jpg'></image>
+    <view class='{{route=="pages/order/order"?"sele":""}}'>订单</view>
+    <button open-type='getUserInfo' bindgetuserinfo='goOrder' class='getUserInfo' wx:if='{{!alearGetUserMes}}'></button>
+  </view>
+  <view class='navItem'>
+    <image src='/image/timg.jpg'></image>
+    <view class='{{route=="pages/my/my"?"sele":""}}'>我的</view>
+    <button open-type='getUserInfo' bindgetuserinfo='goMy' class='getUserInfo' wx:if='{{!alearGetUserMes}}'></button>
+  </view>
+</view>
