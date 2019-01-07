@@ -40,16 +40,29 @@ Page({
   },
   getPayForm(prepayId){
     console.log(prepayId)
-    http('getPayForm', "POST", { repayId: prepayId }).then(res => {
+    http('getPayForm', "POST", { repay_id: prepayId }).then(res => {
       if(res.errCode==0){
+        let data = JSON.parse(res.data)
+        console.log(data.timeStamp)
+        console.log(data.nonceStr)
+        console.log(data.package)
+        console.log(data.signType)
+        console.log(data.paySign)
+
         wx.requestPayment({
-          timeStamp: res.data.timeStamp,
-          nonceStr: res.data.nonceStr,
-          package: res.data.package,
-          signType: res.data.signType,
-          paySign: res.data.paySign,
-          success(res) { },
-          fail(res) { }
+          timeStamp: data.timeStamp,
+          nonceStr: data.nonceStr,
+          package: data.package,
+          signType: data.signType,
+          paySign: data.paySign,
+          success(res) { 
+            wx.showToast({
+              title: '支付成功',
+            })
+          },
+          fail(res) {
+            console.log(res)
+           }
         })
       }
     })

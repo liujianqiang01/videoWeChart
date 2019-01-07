@@ -8,9 +8,9 @@
   <view class='listItem'>帮助中心
     <image src='/image/gengduo1.png' class='more'></image>
   </view>
-  <view class='listItem'>我的订单
+  <navigator url='../order/order' class='listItem' >我的订单
     <image src='/image/gengduo1.png' class='more'></image>
-  </view>
+  </navigator>
   <view class='listItem'>
     <button open-type='contact' class='contact'>联系客服</button>
     <image src='/image/gengduo1.png' class='more'></image>
