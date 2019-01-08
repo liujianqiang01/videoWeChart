@@ -7,11 +7,8 @@
   <view wx:if='{{show}}' class='listItem'>我的收益
     <view class='fr money'>¥ {{money}}</view>
   </view>
-  <view class='listItem'>我的收益
-    <view class='fr money'>¥ {{money}}</view>
-  </view>
   <view class='listItem'>
-    <button class='contact' bindtap='help'>点击跳转</button>
+    <button class='contact' bindtap='help'>帮助中心</button>
      <image src='/image/gengduo1.png' class='more'></image>
   </view>
   <view class='listItem'>
