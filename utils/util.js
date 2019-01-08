@@ -1,4 +1,4 @@
-let baseUrl ='https://47.104.96.127/video/'
+let baseUrl ='https://filmunion.com.cn/video/'
 module.exports = function (url, method,data ) {
   let meth = method.toUpperCase()
   if (meth != "GET" && meth != "DELETE" && meth != "POST" && meth != "PUT") {
