@@ -1,16 +1,21 @@
 <view class='user'>
-  <image src='/image/timg.jpg' class='img fl'></image>
-  <view class='fl'>你就是你</view>
-  
+  <open-data type="userAvatarUrl" class='img fl'></open-data>
+  <open-data type="userNickName"  class='fl'></open-data>
 </view>
 
 <view class='list'>
-  <view class='listItem'>帮助中心
-    <image src='/image/gengduo1.png' class='more'></image>
+  <view wx:if='{{show}}' class='listItem'>我的收益
+    <view class='fr money'>¥ {{money}}</view>
   </view>
-  <navigator url='../order/order' class='listItem' >我的订单
+  <!-- <navigator url='../order/order' class='listItem' >我的订单
     <image src='/image/gengduo1.png' class='more'></image>
-  </navigator>
+  </navigator> -->
+  <view class='listItem'>帮助中心
+    <image src='' class='more'></image>
+  </view>
+  <view class='listItem'>我的收益
+    <view class='fr money'>¥ {{money}}</view>
+  </view>
   <view class='listItem'>
     <button open-type='contact' class='contact'>联系客服</button>
     <image src='/image/gengduo1.png' class='more'></image>

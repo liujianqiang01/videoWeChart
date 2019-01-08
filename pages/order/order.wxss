@@ -28,7 +28,7 @@ page{
   height: 66rpx;
 }
 .pay{
-  width:141rpx;
+  width:144rpx;
   height:66rpx;
   line-height:66rpx;
   background:#ff1744;

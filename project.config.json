@@ -1,17 +1,16 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
-		"autoAudits": false
+		"newFeature": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx4ff803a9d7c7f8ff",
-	"projectname": "123",
+	"projectname": "%E6%B5%8B%E8%AF%95",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -44,6 +43,11 @@
 					"name": "order",
 					"pathName": "pages/order/order",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "income",
+					"pathName": "pages/income/income"
 				}
 			]
 		}

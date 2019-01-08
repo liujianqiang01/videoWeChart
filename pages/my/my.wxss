@@ -35,3 +35,6 @@
   right:40rpx;
   top:24rpx;
 }
+.money{
+  padding-right:56rpx;
+}

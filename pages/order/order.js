@@ -51,7 +51,7 @@ Page({
   },
   goPay(e){
     let prepayId = e.currentTarget.dataset.prepayid
-    http('getPayForm', "POST", { repay_id: prepayId }).then(res => {
+    http('getPayForm', "POST", { prepayId: prepayId }).then(res => {
       if (res.errCode == 0) {
         let data = JSON.parse(res.data)
         console.log(data.timeStamp)
