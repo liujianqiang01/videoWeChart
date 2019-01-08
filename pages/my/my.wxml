@@ -7,14 +7,12 @@
   <view wx:if='{{show}}' class='listItem'>我的收益
     <view class='fr money'>¥ {{money}}</view>
   </view>
-  <!-- <navigator url='../order/order' class='listItem' >我的订单
-    <image src='/image/gengduo1.png' class='more'></image>
-  </navigator> -->
-  <view class='listItem'>帮助中心
-    <image src='' class='more'></image>
-  </view>
   <view class='listItem'>我的收益
     <view class='fr money'>¥ {{money}}</view>
+  </view>
+  <view class='listItem'>
+    <button class='contact' bindtap='help'>点击跳转</button>
+     <image src='/image/gengduo1.png' class='more'></image>
   </view>
   <view class='listItem'>
     <button open-type='contact' class='contact'>联系客服</button>

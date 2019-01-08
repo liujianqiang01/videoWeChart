@@ -26,7 +26,7 @@ Page({
     let params = {
       vipType:e.currentTarget.dataset.viptype
     }
-    http('subOrder', 'POST',params).then(res=>{
+    http('order/subOrder', 'POST',params).then(res=>{
       if(res.errCode==0){
         this.getPayForm(JSON.parse(res.data).prepayId)
       }else{

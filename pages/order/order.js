@@ -30,7 +30,7 @@ Page({
       pageNum: this.data.pageNum,
       pageSize:10
     }
-    http('getOrder', 'POST',params).then(res => {
+    http('order/getOrder', 'POST',params).then(res => {
       console.log(res)
       if (res.errCode == 0 && res.data.list) {
         this.setData({

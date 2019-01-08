@@ -13,7 +13,7 @@ Page({
   },
   getTokenAfter(){
     if (getApp().globalData.userType == 1) {
-      http('getEarnings', 'POST').then(res => {
+      http('order/getEarnings', 'POST').then(res => {
         if (res.errCode == 0) {
           this.setData({
             money: res.data,
@@ -30,7 +30,7 @@ Page({
   help : function(){
     wx.navigateTo({
       title: "帮助中心",
-      url: "https://mp.weixin.qq.com/s/Z7MphZ7StE20YDnxMYvPxA/",
+      url: '../../pages/out/out'
     })
   }
 })
