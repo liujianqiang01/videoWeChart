@@ -7,13 +7,13 @@
   interval='3000'
 >
     <swiper-item>
-      <image src="/image/WechatIMG449.jpeg" class="slide-image" width="355" height="150" />
+      <image src="/image/banner1.jpeg" class="slide-image" width="355" height="150" />
     </swiper-item>
     <swiper-item>
-      <image src="/image/WechatIMG1223.jpeg" class="slide-image" width="355" height="150" />
+      <image src="/image/banner2.jpeg" class="slide-image" width="355" height="150" />
     </swiper-item>
     <swiper-item>
-      <image src="/image/WechatIMG1229.jpeg" class="slide-image" width="355" height="150" />
+      <image src="/image/banner3.jpeg" class="slide-image" width="355" height="150" />
     </swiper-item>
 </swiper>
 <view class='main'>

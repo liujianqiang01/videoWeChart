@@ -9,11 +9,11 @@
   </view>
   <view class='listItem'>
     <button class='contact' bindtap='help'>帮助中心</button>
-     <image src='/image/gengduo1.png' class='more'></image>
+     <image src='/image/help.png' class='more'></image>
   </view>
   <view class='listItem'>
     <button open-type='contact' class='contact'>联系客服</button>
-    <image src='/image/gengduo1.png' class='more'></image>
+    <image src='/image/customer.png' class='more'></image>
   </view>
 </view>
 <nav />
