@@ -7,8 +7,9 @@ Page({
    */
   data: {
     orderList:[],
-    pageNum:1,
-    getAll:false
+    pageNum:0,
+    getAll:false,
+    show: true
   },
   /**
    * 生命周期函数--监听页面显示
@@ -28,11 +29,11 @@ Page({
     })
     let params = {
       pageNum: this.data.pageNum,
-      pageSize:10
+      pageSize:5
     }
     http('order/getOrder', 'POST',params).then(res => {
-      console.log(res)
       if (res.errCode == 0 && res.data.list) {
+       
         this.setData({
           orderList: this.data.orderList.concat(res.data.list),
           pageNum:this.data.pageNum+1
