@@ -43,12 +43,6 @@ Page({
     http('getPayForm', "POST", { prepayId: prepayId }).then(res => {
       if(res.errCode==0){
         let data = JSON.parse(res.data)
-        console.log(data.timeStamp)
-        console.log(data.nonceStr)
-        console.log(data.package)
-        console.log(data.signType)
-        console.log(data.paySign)
-
         wx.requestPayment({
           timeStamp: data.timeStamp,
           nonceStr: data.nonceStr,
