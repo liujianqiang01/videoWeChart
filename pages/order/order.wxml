@@ -10,7 +10,7 @@
     <view class='orderType'>类型：{{item.vipName}}<text class='fr'>¥{{item.orderPrice}}</text></view>
     <view>有效期：{{item.vipStartDate}}至{{item.vipEndDate}}</view>
   </view>
-  <view class='payMes' wx:if='{{item.orderState==1||item.orderState==3}}'>
+  <view class='payMes' wx:if='{{show &&(item.orderState==1||item.orderState==3)}}'>
     <button class='pay fr' wx:if='{{item.orderState==1}}' bindtap='goPay' data-prepayId='{{item.prepayId}}'>去支付</button>
     <view class='invitationCode' wx:if='{{item.orderState==3}}'>邀请码：{{item.vipCode}}</view>
   </view>
