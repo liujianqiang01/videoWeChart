@@ -33,12 +33,11 @@ Page({
     }
     http('order/getOrder', 'POST',params).then(res => {
       if (res.errCode == 0 && res.data.list) {
-       
         this.setData({
           orderList: this.data.orderList.concat(res.data.list),
           pageNum:this.data.pageNum+1
         })
-        if (res.data.list.length==10){
+        if (res.data.list.length==5){
           this.setData({
             getAll:false
           })
