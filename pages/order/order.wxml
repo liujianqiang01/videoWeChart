@@ -12,7 +12,7 @@
   </view>
   <view class='payMes' wx:if='{{((item.orderState==1&&userType!=1)||item.orderState==3)}}'>
     <button class='pay fr' wx:if='{{(item.orderState==1&&userType!=1)}}' bindtap='goPay' data-prepayId='{{item.prepayId}}'>去支付</button>
-    <view class='invitationCode' wx:if='{{item.orderState==3}}'>邀请码：{{item.vipCode}}</view>
+    <view class='invitationCode' wx:if='{{item.orderState==3}}'>激活码：{{item.vipCode}}</view>
   </view>
 </view>
 <view class='noOrder' wx:if='{{orderList.length==0}}'>

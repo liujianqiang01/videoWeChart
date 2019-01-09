@@ -30,7 +30,7 @@ Page({
   help : function(){
     wx.navigateTo({
       title: "帮助中心",
-      url: '../../pages/out/out'
+      url: '../../pages/help/help'
     })
   }
 })
