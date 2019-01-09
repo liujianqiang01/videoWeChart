@@ -38,3 +38,7 @@ page{
 .invitationCode{
   line-height: 66rpx;
 }
+.noOrder{
+  padding-top: 30rpx;
+  text-align: center;
+}

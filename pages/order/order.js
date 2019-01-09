@@ -9,13 +9,16 @@ Page({
     orderList:[],
     pageNum:0,
     getAll:false,
-    show: true
+    userType:1
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     this.onReachBottom()
+    this.setData({
+      userType: getApp().globalData.userType
+    })
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -32,6 +35,7 @@ Page({
       pageSize:5
     }
     http('order/getOrder', 'POST',params).then(res => {
+      console.log(res)
       if (res.errCode == 0 && res.data.list) {
         this.setData({
           orderList: this.data.orderList.concat(res.data.list),

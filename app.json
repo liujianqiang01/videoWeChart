@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/order/order",
-    "pages/my/my",
-    "pages/out/out"
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",

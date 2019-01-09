@@ -1,4 +1,4 @@
-<view class='order' wx:for='{{orderList}}' wx:key='{{index}}'>
+<view class='order'  wx:if='{{orderList.length>0}}' wx:for='{{orderList}}' wx:key='{{index}}'>
   <view class='orderCode'>
     订单：{{item.orderCode}}
     <text class='fr' wx:if='{{item.orderState==1}}'>未支付</text>
@@ -10,8 +10,11 @@
     <view class='orderType'>类型：{{item.vipName}}<text class='fr'>¥{{item.orderPrice}}</text></view>
     <view>有效期：{{item.vipStartDate}}至{{item.vipEndDate}}</view>
   </view>
-  <view class='payMes' wx:if='{{show &&(item.orderState==1||item.orderState==3)}}'>
-    <button class='pay fr' wx:if='{{item.orderState==1}}' bindtap='goPay' data-prepayId='{{item.prepayId}}'>去支付</button>
+  <view class='payMes' wx:if='{{((item.orderState==1&&userType!=1)||item.orderState==3)}}'>
+    <button class='pay fr' wx:if='{{(item.orderState==1&&userType!=1)}}' bindtap='goPay' data-prepayId='{{item.prepayId}}'>去支付</button>
     <view class='invitationCode' wx:if='{{item.orderState==3}}'>邀请码：{{item.vipCode}}</view>
   </view>
+</view>
+<view class='noOrder' wx:if='{{orderList.length==0}}'>
+  暂无订单
 </view>
