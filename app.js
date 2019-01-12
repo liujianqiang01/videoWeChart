@@ -1,6 +1,11 @@
 //app.js
 import http from '/utils/util'
 App({
+  onLaunch(){
+    String.prototype.Trim = function () {
+      return this.replace(/(^\s*)/g, "");
+    }    
+  },
   onShow: function (options) {
     this.globalData.alearGetUserMes = false
     let that = this

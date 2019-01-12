@@ -7,6 +7,9 @@
   <view wx:if='{{show}}' class='listItem'>我的收益
     <view class='fr money'>¥ {{money}}</view>
   </view>
+  <view wx:if='{{show}}' class='listItem' bindtap='changeMes'>商户信息
+    <view class='fr chenge money'>修改</view>
+  </view>
   <view class='listItem'>
     <button class='contact' bindtap='help'>帮助中心</button>
      <image src='/image/help.png' class='more'></image>
@@ -17,3 +20,14 @@
   </view>
 </view>
 <nav />
+<view class='merMes' hidden='{{updataMer}}'>
+  <view class='title'>请绑定商户信息</view>
+  <view class='inputMes'><text class='fl'>商户名称:</text><input class='fl' placeholder='商户名称' value='{{merchantMes.menchantName}}' bindinput='bindMes' data-name='menchantName' /></view>
+  <view class='inputMes'><text class='fl'>商户地址:</text><input class='fl' placeholder='商户地址' value='{{merchantMes.menchantAddr}}' bindinput='bindMes' data-name='menchantAddr'/></view>
+  <view class='inputMes'><text class='fl'>商户电话:</text><input class='fl' placeholder='商户电话' value='{{merchantMes.mobile}}' bindinput='bindMes' data-name='mobile'/></view>
+  <button bindtap='saveMes'>保存</button>
+  <button class='close' wx:if='{{haveMes}}' bindtap='close'>X</button>
+</view>
+ <view class='mask' hidden='{{updataMer}}'>
+  </view>
+

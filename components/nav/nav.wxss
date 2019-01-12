@@ -7,7 +7,7 @@
   height: 90rpx;
   border-top:1px solid #eee;
   background: #fff;
-  z-index: 9999;
+  z-index: 99;
 }
 .navItem{
   width: 33.333%;
