@@ -41,7 +41,6 @@
       <view class='price'>{{item.vipName}}</view>
     </view>
     <view class='timePrice fl'>
-      <view class='describe'>¥{{item.vipPrice}}</view>
       <view class='time'>有效期：{{item.indate}}天</view>
     </view>
   </view>
