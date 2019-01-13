@@ -4,11 +4,13 @@ var app = getApp()
 import http from '../../utils/util.js'
 Page({
   data: {
-    list:[]
+    list:[],
+    banners:[]
   },
   onShow: function () {
     if (getApp().globalData.token && getApp().globalData.sessionId) {
-      this.getList()
+      this.getList();
+      this.getBanner();
     } else {
       getApp().getTokenAfter = this.getList
     }
@@ -60,5 +62,14 @@ Page({
         })
       }
     })
-  }
+  },
+  getBanner() {
+    http('getBanner', 'POST').then(res => {
+      if (res.errCode == 0) {
+        this.setData({
+          banners: res.data
+        })
+      }
+    })
+  },
 })

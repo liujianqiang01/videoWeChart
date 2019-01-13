@@ -1,21 +1,16 @@
 <!--index.wxml-->
-<swiper 
+ <swiper 
   class='banner'
   autoplay
   indicator-dots
   circular
   interval='3000'
 >
-    <swiper-item>
-      <image src="/image/banner1.jpeg" class="slide-image" width="355" height="150" />
-    </swiper-item>
-    <swiper-item>
-      <image src="/image/banner2.jpeg" class="slide-image" width="355" height="150" />
-    </swiper-item>
-    <swiper-item>
-      <image src="/image/banner3.jpeg" class="slide-image" width="355" height="150" />
+  <swiper-item  wx:for="{{banners}}" wx:for-item="img">
+      <image src="{{img}}" class="slide-image" width="355" height="150" />
     </swiper-item>
 </swiper>
+
 <view class='main'>
   <view class='mainItem' 
     wx:for='{{list}}' 
