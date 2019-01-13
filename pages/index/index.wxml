@@ -6,7 +6,7 @@
   circular
   interval='3000'
 >
-  <swiper-item  wx:for="{{banners}}" wx:for-item="img">
+  <swiper-item  wx:for="{{banners}}" wx:for-item="img"  wx:key="img">
       <image src="{{img}}" class="slide-image" width="355" height="150" />
     </swiper-item>
 </swiper>

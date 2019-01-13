@@ -8,9 +8,9 @@ Page({
     banners:[]
   },
   onShow: function () {
+    this.getBanner();
     if (getApp().globalData.token && getApp().globalData.sessionId) {
       this.getList();
-      this.getBanner();
     } else {
       getApp().getTokenAfter = this.getList
     }
