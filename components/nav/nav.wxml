@@ -4,7 +4,7 @@
     <image src='/image/home.png'></image>
     <view class='{{route=="pages/index/index"?"sele":""}}'>首页</view>
   </view>
-  <view class='navItem'>
+  <view class='navItem' wx:if='{{showPay}}'>
     <image src='/image/order.png'></image>
     <view class='{{route=="pages/order/order"?"sele":""}}'>订单</view>
     <button open-type='getUserInfo' bindgetuserinfo='goOrder' class='getUserInfo' wx:if='{{!alearGetUserMes}}'></button>

@@ -5,7 +5,8 @@ import http from '../../utils/util.js'
 Page({
   data: {
     list:[],
-    banners:[]
+    banners:[],
+    showPay:false
   },
   onShow: function () {
     this.getBanner();
@@ -19,7 +20,8 @@ Page({
     http('getVipType', 'POST').then(res => {
       if (res.errCode == 0) {
         this.setData({
-          list: res.data
+          list: res.data,
+          showPay: getApp().globalData.showPay
         })
       }
     })

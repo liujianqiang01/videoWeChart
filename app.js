@@ -33,6 +33,7 @@ App({
               that.globalData.sessionId = res.data.sessionId
               that.globalData.token = res.data.token
               that.globalData.userType = res.data.userType
+              that.globalData.showPay = res.data.showPay
               if (that.getTokenAfter) {
                 that.getTokenAfter()
               }
@@ -46,6 +47,7 @@ App({
     sessionId: null,
     token:null,
     alearGetUserMes:false,
-    userType:null
+    userType:null,
+    showPay:false
   }
 })

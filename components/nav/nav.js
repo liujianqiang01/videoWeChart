@@ -10,7 +10,8 @@ Component({
   attached(){
     let route = getCurrentPages()[getCurrentPages().length - 1].route
     this.setData({
-      route: route
+      route: route,
+      showPay: getApp().globalData.showPay
     })
   },
   /**
@@ -18,6 +19,7 @@ Component({
    */
   data: {
     alearGetUserMes:false,
+    showPay: true,
     route:'pages/index/index'
   },
 
