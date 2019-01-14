@@ -10,13 +10,13 @@ App({
     console.log(options)
     this.globalData.alearGetUserMes = false
     let that = this
-    let scene, param
+    let scene, merchantId
     wx.login({
       success(res) {
         if (res.code) {
           let params = {
             code: res.code,
-            'param': options.query.param ? options.query.param : ""
+            'merchantId': options.query.merchantId ? options.query.merchantId : ""
           }
           http('login/getToken', 'POST', params).then(res => {
             if (res.errCode == 0) {
