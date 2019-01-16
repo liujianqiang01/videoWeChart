@@ -2,7 +2,8 @@ import http from '../../utils/util.js'
 Page({
   data: {
     show:false,
-    money:0,
+    earning:0,
+    unEarning:0,
     updataMer:true,
     haveMes:false,
     merchantMes:{
@@ -23,7 +24,8 @@ Page({
       http('order/getEarnings', 'POST').then(res => {
         if (res.errCode == 0) {
           this.setData({
-            money: res.data,
+            earning: res.data.earning,
+            unEarning: res.data.unEarning,
             show: true
           })
         }

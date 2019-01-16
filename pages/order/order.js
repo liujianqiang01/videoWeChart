@@ -32,7 +32,7 @@ Page({
     })
     let params = {
       pageNum: this.data.pageNum,
-      pageSize:5
+      pageSize:10
     }
     http('order/getOrder', 'POST',params).then(res => {
       console.log(res)
@@ -41,7 +41,7 @@ Page({
           orderList: this.data.orderList.concat(res.data.list),
           pageNum:this.data.pageNum+1
         })
-        if (res.data.list.length==5){
+        if (res.data.list.length==10){
           this.setData({
             getAll:false
           })
