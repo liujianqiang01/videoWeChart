@@ -14,7 +14,7 @@
     <view class='fr chenge money'>修改</view>
   </view>
   <view class='listItem'>
-    <button class='contact' bindtap='help'>帮助中心</button>
+    <button class='contact' bindtap='help'>下载地址</button>
      <image src='/image/help.png' class='more'></image>
   </view>
   <view class='listItem'>

@@ -53,7 +53,7 @@ Page({
   },
   help : function(){
     wx.navigateTo({
-      title: "帮助中心",
+      title: "下载地址",
       url: '../../pages/help/help'
     })
   },
