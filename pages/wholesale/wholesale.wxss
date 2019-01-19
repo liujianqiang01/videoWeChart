@@ -1,0 +1,40 @@
+.main{
+  margin-top: 32rpx;
+  padding-bottom:90rpx;
+}
+.mainItem{
+  width: 94%;
+  margin: 30rpx auto;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+  box-shadow: 8rpx 8rpx 4rpx #888888;
+  height: 160rpx;
+  position: relative;
+}
+.row{
+  width: 70%;
+}
+.up{
+  margin-top:5px;
+  margin-left:10px;
+  font-size:30rpx;
+}
+.down{
+  margin-top:15px;
+  margin-left:10px;
+  font-size:40rpx;
+}
+.vipName{
+  color: #FF1744;
+  width: 30%;
+}
+.payNow{
+  position: absolute;
+  padding: 10rpx;
+  background: #06c1ae;
+  border-radius: 8rpx;
+  right: 10rpx;
+  color:#fff;
+  font-size:30rpx;
+  top:90rpx;
+}

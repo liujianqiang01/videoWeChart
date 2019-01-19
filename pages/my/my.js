@@ -106,5 +106,10 @@ Page({
     this.setData({
       updataMer: true
     })
+  },
+  wholesale() {
+    wx.navigateTo({
+      url: '../../pages/wholesale/wholesale'
+    })
   }
 })

@@ -1,0 +1,21 @@
+<!--pages/wholesale/wholesale.wxml-->
+<view class='main' >
+  <view class='mainItem'
+    wx:for='{{list}}' 
+    wx:key='{{item.id}}' 
+    data-vipType='{{item.vipType}}'
+  >
+
+
+    <view class='row fl'>
+      <view class='up'>已购：100</view>
+    
+      <view class='down'>
+        <text class='vipName' decode="nbsp" >{{item.vipName}}&nbsp;&nbsp;</text>
+        有效期：{{item.indate}}天
+      </view>
+    </view>
+    <view class='payNow' >立即购买</view>
+
+  </view>
+</view>

@@ -10,6 +10,9 @@
    <view wx:if='{{show}}' class='listItem'>历史累计收益
     <view class='fr money'>¥ {{earning}}</view>
   </view>
+  <view wx:if='{{show}}' class='listItem' bindtap='wholesale'>采购中心
+    <view class='fr chenge money'>采购</view>
+  </view>
   <view wx:if='{{show}}' class='listItem' bindtap='changeMes'>商户信息
     <view class='fr chenge money'>修改</view>
   </view>

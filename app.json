@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/order/order",
     "pages/my/my",
-    "pages/help/help"
+    "pages/help/help",
+    "pages/wholesale/wholesale"
   ],
   "window": {
     "backgroundTextStyle": "light",

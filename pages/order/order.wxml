@@ -18,3 +18,4 @@
 <view class='noOrder' wx:if='{{orderList.length==0}}'>
   暂无订单
 </view>
+<nav />
