@@ -17,10 +17,15 @@
 .up{
   margin-top:5px;
   margin-left:10px;
-  font-size:30rpx;
+  font-size:26rpx;
+}
+.center{
+  margin-top:1px;
+  margin-left:10px;
+  font-size:24rpx;
 }
 .down{
-  margin-top:15px;
+  margin-top:3px;
   margin-left:10px;
   font-size:40rpx;
 }
@@ -28,13 +33,31 @@
   color: #FF1744;
   width: 30%;
 }
-.payNow{
+.add{
   position: absolute;
   padding: 10rpx;
-  background: #06c1ae;
   border-radius: 8rpx;
   right: 10rpx;
-  color:#fff;
+  color:black;
   font-size:30rpx;
-  top:90rpx;
+  top:80rpx;
+}
+.tui-number-group{
+  display: table;
+  table-layout: fixed;
+  width: 200rpx;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  overflow: hidden;
+}
+.tui-number-cell{
+  display: table-cell;
+  line-height: 1.5;
+  border-radius: 0;
+}
+button::after{
+  border-bottom: none;
+  border-top: none;
+  border-radius: 0;
 }

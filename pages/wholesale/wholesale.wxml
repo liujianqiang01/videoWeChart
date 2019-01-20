@@ -4,18 +4,34 @@
     wx:for='{{list}}' 
     wx:key='{{item.id}}' 
     data-vipType='{{item.vipType}}'
+    data-key='{{index}}'
   >
 
 
     <view class='row fl'>
-      <view class='up'>已购：100</view>
-    
+      <view class='up'> 
+      <text decode="nbsp">已购:100 &nbsp;&nbsp;&nbsp;已售:50&nbsp;&nbsp;&nbsp;待售:50</text>
+      </view>
+        <view class='center'> 
+      <text decode="nbsp">¥:1000.00 &nbsp;&nbsp;¥:500.00&nbsp;&nbsp;¥:500.00</text>
+      </view>
       <view class='down'>
         <text class='vipName' decode="nbsp" >{{item.vipName}}&nbsp;&nbsp;</text>
         有效期：{{item.indate}}天
       </view>
     </view>
-    <view class='payNow' >立即购买</view>
-
+    <view class='add' >
+    
+    
+<view class="tui-content">
+  <view class="tui-gallery-list">
+    <view class="tui-number-group">
+      <button data-id="{{index}}" class="tui-number-cell" bindtap="subNum" disabled='{{disabled1Array[index]}}'>-</button>
+      <input class="tui-number-cell" type="number" value="{{numberArray[index]}}"></input>
+      <button data-id="{{index}}" class="tui-number-cell" bindtap="addNum" disabled='{{disabled2Array[index]}}'>+</button>
+    </view>
+  </view>
+</view>
+    </view>
   </view>
 </view>
