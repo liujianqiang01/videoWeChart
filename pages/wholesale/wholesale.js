@@ -10,7 +10,9 @@ Page({
     numberArray: [0,0,0],
     disabled1Array: [false, false, false],
     disabled2Array: [false, false, false],
-    clickTime : 0
+    clickTime : 0,
+    totalPrice:0,
+    priceList:null
   },
 
   /**
@@ -91,7 +93,7 @@ Page({
       [disabled2Name]: this.data.numberArray[id] >= 10000 ? true : false,
       clickTime: this.data.clickTime + 1
     });
-    this.getCountPrice(this.data.clickTime);
+    this.getCountPrice(this.data.clickTime,e);
   },
   subNum(e) {
     var id = e.currentTarget.dataset.id;
@@ -105,21 +107,25 @@ Page({
       [disabled2Name]: this.data.numberArray[id] <= 10000 ? false : true,
       clickTime: this.data.clickTime + 1,
     });
-    this.getCountPrice(this.data.clickTime);
+    this.getCountPrice(this.data.clickTime,e);
   }, 
-  getCountPrice(clickTime) {
+  getCountPrice(clickTime,e) {
     var that = this;
     setTimeout(function(){
       var last = that.data.clickTime;
+      let params = {
+        numbers:that.data.numberArray
+      }
       if (last == clickTime){
-        http('getVipType', 'POST').then(res => {
+        http('wholesalePrice/getTotalPrice', 'POST',params).then(res => {
           if (res.errCode == 0) {
-            this.setData({
-              
+            that.setData({
+              totalPrice :res.data.totalPrice,
+              priceList : res.data.list
             })
           }
         })
       }
-    }, 2000);
+    }, 1000);
   }
 })

@@ -27,7 +27,7 @@
   <view class="tui-gallery-list">
     <view class="tui-number-group">
       <button data-id="{{index}}" class="tui-number-cell" bindtap="subNum" disabled='{{disabled1Array[index]}}'>-</button>
-      <input class="tui-number-cell" type="number" value="{{numberArray[index]}}"></input>
+      <input class="tui-number-cell" type="number" data-name="{{number[index]}}" value="{{numberArray[index]}}"></input>
       <button data-id="{{index}}" class="tui-number-cell" bindtap="addNum" disabled='{{disabled2Array[index]}}'>+</button>
     </view>
   </view>
@@ -35,3 +35,24 @@
     </view>
   </view>
 </view>
+
+  <view class='vipPriceItem'
+    wx:for='{{priceList}}' 
+    wx:key='{{item.vipType}}' 
+    data-vipType='{{item.vipType}}'
+    data-key='{{index}}'
+  >
+  
+  <view class='vipPrice'>
+  {{item.vipName}} 
+  | 数量:{{item.number}} | 
+  单格:¥{{item.price}} |  总价:¥{{item.totalPrice}}
+
+  </view>
+  </view>
+ <view style="position:fixed; bottom:0;width: 200rpx;">
+合计:{{totalPrice}}
+  </view>
+  <view class="payNow" style="position:fixed; bottom:0;width: 120rpx;">
+立即采购
+  </view>

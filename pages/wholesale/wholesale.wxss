@@ -61,3 +61,26 @@ button::after{
   border-top: none;
   border-radius: 0;
 }
+.vipPriceItem{
+  width: 94%;
+  margin: 30rpx auto;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+  box-shadow: 8rpx 8rpx 4rpx #888888;
+  height: 80rpx;
+}
+.vipPrice{
+ margin-left:30px;
+ font-size:34rpx;
+ margin-top:6px;
+ width:250px;
+}
+.payNow{
+  padding: 10rpx;
+  background: #06c1ae;
+  border-radius: 8rpx;
+  right: 1rpx;
+  color:#fff;
+  font-size:30rpx;
+  height:20px;
+}
