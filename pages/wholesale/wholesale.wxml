@@ -46,13 +46,13 @@
   <view class='vipPrice'>
   {{item.vipName}} 
   | 数量:{{item.number}} | 
-  单格:¥{{item.price}} |  总价:¥{{item.totalPrice}}
+  单价:¥{{item.price}} |  总价:¥{{item.totalPrice}}
 
   </view>
   </view>
  <view style="position:fixed; bottom:0;width: 200rpx;">
 合计:{{totalPrice}}
   </view>
-  <view class="payNow" style="position:fixed; bottom:0;width: 120rpx;">
+  <view class="payNow" bindtap='goWholesale' style="position:fixed; bottom:0;width: 120rpx;">
 立即采购
   </view>

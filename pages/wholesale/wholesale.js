@@ -119,6 +119,27 @@ Page({
       if (last == clickTime){
         http('wholesalePrice/getTotalPrice', 'POST',params).then(res => {
           if (res.errCode == 0) {
+            //检查库存
+            var number_tem =[0,0,0];
+            for (var index in number_tem) {
+              var eques = true;
+              for (var list in res.data.list) {
+                var vipType = (res.data.list[list].vipType - 1);
+                if (index == [vipType] ){
+                    number_tem[index] = res.data.list[index].number;
+                }
+                if (number_tem[index] == that.data.numberArray[index]) {
+                  eques = false;
+                }
+              }           
+              if (eques){
+                wx.showToast({
+                  title:"库存不足"
+                })
+                return;
+              }
+            }
+            
             that.setData({
               totalPrice :res.data.totalPrice,
               priceList : res.data.list
@@ -127,5 +148,46 @@ Page({
         })
       }
     }, 1000);
-  }
+  },
+  goWholesale(){
+    var that = this;
+    let params = {
+      number: that.data.numberArray,
+      totalPrice: that.data.totalPrice
+    }
+      http('wholesaleOrder/subOrder', 'POST', params).then(res => {
+        if (res.errCode == 0) {
+          console.log(res.data.data)
+          this.getPayForm(JSON.parse(res.data.data).prepayId)
+        } else {
+          wx.showToast({
+            title: res.errMsg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    },
+  getPayForm(prepayId) {
+    http('getPayForm', "POST", { prepayId: prepayId }).then(res => {
+      if (res.errCode == 0) {
+        let data = JSON.parse(res.data)
+        wx.requestPayment({
+          timeStamp: data.timeStamp,
+          nonceStr: data.nonceStr,
+          package: data.package,
+          signType: data.signType,
+          paySign: data.paySign,
+          success(res) {
+            wx.showToast({
+              title: '支付成功',
+            })
+          },
+          fail(res) {
+            console.log(res)
+          }
+        })
+      }
+    })
+  },
 })
