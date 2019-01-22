@@ -10,10 +10,10 @@
 
     <view class='row fl'>
       <view class='up'> 
-      <text decode="nbsp">已购:100 &nbsp;&nbsp;&nbsp;已售:50&nbsp;&nbsp;&nbsp;待售:50</text>
+      <text decode="nbsp">已购:{{totalNumber[index]}} &nbsp;&nbsp;&nbsp;已售:{{saleNumber[index]}}&nbsp;&nbsp;&nbsp;待售:{{surplusNumber[index]}}</text>
       </view>
         <view class='center'> 
-      <text decode="nbsp">¥:1000.00 &nbsp;&nbsp;¥:500.00&nbsp;&nbsp;¥:500.00</text>
+      <text decode="nbsp">采购成本：¥{{wholesalePrice[index]}} &nbsp;&nbsp;</text>
       </view>
       <view class='down'>
         <text class='vipName' decode="nbsp" >{{item.vipName}}&nbsp;&nbsp;</text>

@@ -12,7 +12,13 @@ Page({
     disabled2Array: [false, false, false],
     clickTime : 0,
     totalPrice:0,
-    priceList:null
+    priceList:null,
+    totalNumber:[0,0,0],
+    saleNumber: [0, 0, 0],
+    surplusNumber: [0, 0, 0],
+    wholesalePrice: [0, 0, 0],
+    salePrice: [0, 0, 0]
+  
   },
 
   /**
@@ -72,10 +78,16 @@ Page({
 
   },
   getList() {
-    http('getVipType', 'POST').then(res => {
+    http('getMVipType', 'POST').then(res => {
       if (res.errCode == 0) {
+        console.log(res)
         this.setData({
-          list: res.data,
+          list: res.data.tVipPrices,
+          totalNumber: res.data.totalNumber,
+          saleNumber: res.data.saleNumber,
+          surplusNumber: res.data.surplusNumber,
+          wholesalePrice: res.data.wholesalePrice,
+          salePrice: res.data.salePrice,
           showPay: getApp().globalData.showPay
         })
       }
