@@ -6,6 +6,8 @@ Page({
     unEarning:0,
     updataMer:true,
     haveMes:false,
+    applyReason: true,
+    reason:null,
     merchantMes:{
       menchantName:null,
       menchantAddr:null,
@@ -110,6 +112,45 @@ Page({
   wholesale() {
     wx.navigateTo({
       url: '../../pages/wholesale/wholesale'
+    })
+  },
+  applyFor() {
+    this.setData({
+      applyReason: false,
+    })
+  },
+  closeApply() {
+    this.setData({
+      applyReason: true
+    })
+  },
+  saveReaso(e) {
+    if (!this.data.reason) {
+      wx.showToast({
+        title: '请填写完整信息',
+        icon: 'none'
+      })
+    } else {
+      let param = { reason: this.data.reason}
+      http('login/apply', 'POST', param).then(res => {
+        if (res.errCode != 0) {
+          wx.showToast({
+            title: res.errMsg,
+            icon: 'none'
+          })
+        } else {
+          this.setData({
+            applyReason: true
+          })
+        }
+      })
+    }
+  },
+  bindReason(e) {
+    let reason = e.currentTarget.dataset.reason
+    let value = e.detail.value
+    this.setData({
+      reason: value.Trim()
     })
   }
 })
