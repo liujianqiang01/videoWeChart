@@ -11,8 +11,8 @@ Component({
     let route = getCurrentPages()[getCurrentPages().length - 1].route
     this.setData({
       route: route,
-      showPay: getApp().globalData.showPay
     })
+    this.getUtil()
   },
   /**
    * 组件的初始数据
@@ -77,5 +77,14 @@ Component({
     upUserMes(e) {
       
     },
-  }
+    getUtil() {
+      http('login/util', 'POST').then(res => {
+        if (res.errCode == 0) {
+          this.setData({
+            showPay: res.data.showPay
+          })
+        }
+      })
+    }
+  },
 })
