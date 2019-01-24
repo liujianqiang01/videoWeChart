@@ -16,6 +16,9 @@ Page({
     }
   },
   onShow: function () {
+    this.setData({
+      showPay : getApp().globalData.showPay
+    })
     if (getApp().globalData.token && getApp().globalData.sessionId) {
       this.getTokenAfter()
     }else{
@@ -23,7 +26,7 @@ Page({
     }
   },
   getTokenAfter(){
-    console.log(getApp().globalData.showPay)
+   
     if (getApp().globalData.userType == 1) {
       http('order/getEarnings', 'POST').then(res => {
         if (res.errCode == 0) {
@@ -31,7 +34,7 @@ Page({
             earning: res.data.earning,
             unEarning: res.data.unEarning,
             show: true,
-            showPay: getApp().globalData.showPay
+           
           })
         }
       })
