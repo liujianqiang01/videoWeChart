@@ -84,3 +84,31 @@ button::after{
   font-size:30rpx;
   height:20px;
 }
+.excel{
+  background: #06c1ae;
+  border-radius: 8rpx;
+  color:#fff;
+  font-size:30rpx;
+  width:25px;
+  position: absolute;
+  right:5px;
+  top:10px;
+}
+.download{
+  background: #06c1ae;
+  border-radius: 8rpx;
+  color:#fff;
+  font-size:30rpx;
+  position: absolute;
+  right:25%;
+  top:50%;
+}
+.close{
+  background:#bbb;
+  border-radius: 8rpx;
+  color:#fff;
+  font-size:30rpx;
+  position: absolute;
+  right:60%;
+  top:50%;
+}

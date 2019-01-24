@@ -17,7 +17,10 @@ Page({
     saleNumber: [0, 0, 0],
     surplusNumber: [0, 0, 0],
     wholesalePrice: [0, 0, 0],
-    salePrice: [0, 0, 0]
+    salePrice: [0, 0, 0],
+    excelType:0,
+    excelhidden:true,
+    excelnumber: 0
   
   },
 
@@ -202,4 +205,73 @@ Page({
       }
     })
   },
+  excel(e){
+    var vipType = e.currentTarget.dataset.id;
+    this.setData({
+      excelType: vipType,
+      excelhidden:false,
+      excelnumber: 0
+    })
+  },
+  closeExcel(){
+    this.setData({
+      excelhidden: true
+    })
+  }, 
+  excelnumber(e) {
+    console.log(e.detail.value);
+    this.setData({
+      excelnumber: e.detail.value
+    })
+  },
+  excelDownload(){
+    var vipType = this.data.excelType;
+    var number = this.data.excelnumber;
+    if (number <= 0){
+      wx.showToast({
+        title: "请输入数量"
+      })
+      return;
+    }
+   // var baseUrl = https://test.filmunion.com.cn/video/wholesaleOrder/excelDownload',
+    var baseUrl = 'http://localhost:8080/wholesaleOrder/excelDownload';
+    var data = '?vipType=' + vipType + '&number=' + number;
+    wx.downloadFile({
+      url: baseUrl+data,
+      header: {
+        Cookie: getApp() ? 'JSESSIONID=' + getApp().globalData.sessionId : "",
+        token: getApp() ? getApp().globalData.token : ""
+      },
+      success: function (res) {
+        if (res.statusCode == 200){
+          var filePath = res.tempFilePath;
+          wx.openDocument({
+            filePath: filePath,
+            fileType: 'xlsx',
+            success: function (res) {
+              console.log('打开文档成功')
+            },
+            fail: function (res) {
+              console.log(res);
+            },
+            complete: function (res) {
+              console.log(res);
+            }
+          })
+          wx.saveFile({
+            tempFilePath: res.tempFilePath,
+            success: function (result) {
+              var savedFilePath = res.tempFilePath
+              console.log(savedFilePath)
+            }
+          })
+        }
+      },
+  
+      fail: function (res) {
+        console.log('文件下载失败');
+      },
+      complete: function (res) { },
+    })
+  }
 })
