@@ -62,8 +62,8 @@
   <view hidden='{{excelhidden}}' class='mainItem' >
   <view><text class='fl' >导出数量:</text>
   </view>
- <input type="number" bindinput='excelnumber'>
+ <input type="number" bindinput='excelnumber'/>
    <button bindtap='closeExcel' class='close'>取消</button>
    <button bindtap='excelDownload'  class='download'>导出</button>
-   </input>
+  
 </view>

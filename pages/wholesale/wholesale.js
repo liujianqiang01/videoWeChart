@@ -229,12 +229,12 @@ Page({
     var number = this.data.excelnumber;
     if (number <= 0){
       wx.showToast({
-        title: "请输入数量"
+        title: "请输入数量",
+         icon: 'none'
       })
       return;
     }
-   // var baseUrl = https://test.filmunion.com.cn/video/wholesaleOrder/excelDownload',
-    var baseUrl = 'http://localhost:8080/wholesaleOrder/excelDownload';
+    var baseUrl = 'https://test.filmunion.com.cn/video/wholesaleOrder/excelDownload';
     var data = '?vipType=' + vipType + '&number=' + number;
     wx.downloadFile({
       url: baseUrl+data,
@@ -264,6 +264,11 @@ Page({
               var savedFilePath = res.tempFilePath
               console.log(savedFilePath)
             }
+          })
+        }else{
+          wx.showToast({
+            title: '请先采购',
+            icon: 'none'
           })
         }
       },

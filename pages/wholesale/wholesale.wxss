@@ -89,7 +89,7 @@ button::after{
   border-radius: 8rpx;
   color:#fff;
   font-size:30rpx;
-  width:25px;
+  width:10%;
   position: absolute;
   right:5px;
   top:10px;
