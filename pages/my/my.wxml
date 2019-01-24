@@ -16,7 +16,7 @@
   <view wx:if='{{show}}' class='listItem' bindtap='changeMes'>商户信息
     <view class='fr chenge money'>修改</view>
   </view>
-    <view wx:if='{{!show}}' class='listItem' bindtap='applyFor'>申请代理
+    <view wx:if='{{!show && showPay}}' class='listItem' bindtap='applyFor'>申请代理
     <view class='fr chenge money'>申请</view>
   </view>
   <view class='listItem'>

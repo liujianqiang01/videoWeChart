@@ -2,6 +2,7 @@ import http from '../../utils/util.js'
 Page({
   data: {
     show:false,
+    showPay: false,
     earning:0,
     unEarning:0,
     updataMer:true,
@@ -22,13 +23,15 @@ Page({
     }
   },
   getTokenAfter(){
+    console.log(getApp().globalData.showPay)
     if (getApp().globalData.userType == 1) {
       http('order/getEarnings', 'POST').then(res => {
         if (res.errCode == 0) {
           this.setData({
             earning: res.data.earning,
             unEarning: res.data.unEarning,
-            show: true
+            show: true,
+            showPay: getApp().globalData.showPay
           })
         }
       })
