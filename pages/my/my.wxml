@@ -13,6 +13,9 @@
   <view wx:if='{{show}}' class='listItem' bindtap='wholesale'>采购中心
     <view class='fr chenge money'>采购</view>
   </view>
+    <view wx:if='{{show}}' class='listItem' bindtap='applyPrice'>价格调整
+    <view class='fr chenge money'>申请</view>
+  </view>
   <view wx:if='{{show}}' class='listItem' bindtap='changeMes'>商户信息
     <view class='fr chenge money'>修改</view>
   </view>
@@ -29,6 +32,7 @@
   </view>
 </view>
 <nav />
+<!-- 修改商户信息 -->
 <view class='merMes' hidden='{{updataMer}}'>
   <view class='title'>请绑定商户信息</view>
   <view class='inputMes'><text class='fl'>商户名称:</text><input class='fl' placeholder='商户名称' value='{{merchantMes.menchantName}}' bindinput='bindMes' data-name='menchantName' /></view>
@@ -39,7 +43,7 @@
 </view>
  <view class='mask' hidden='{{updataMer}}'>
   </view>
-
+<!-- 代理申请 -->
 <view class='merMes' hidden='{{applyReason}}'>
   <view class='inputMes'><text class='fl'>申请理由:</text>
   </view>
@@ -47,4 +51,13 @@
 
    <button bindtap='saveReaso'>保存</button>
   <button class='close' wx:if='{{!applyReason}}' bindtap='closeApply'>X</button>
+</view>
+<!-- 价格调整 -->
+<view class='merMes' hidden='{{applyPriceHidden}}'>
+  <view class='title'>请填写对应价格</view>
+  <view class='inputMes'><text class='fl'>月卡:</text><input class='fl' placeholder='0.00' bindinput='bindApplyPrice' data-name='monthCardPrice' /></view>
+  <view class='inputMes'><text class='fl'>季卡:</text><input class='fl' placeholder='0.00' bindinput='bindApplyPrice' data-name='seasonCardPrice'/></view>
+  <view class='inputMes'><text class='fl'>年卡:</text><input class='fl' placeholder='0.00' bindinput='bindApplyPrice' data-name='yearCardPrice'/></view>
+  <button bindtap='saveApplyPrice'>申请</button>
+  <button class='close'  bindtap='closeApplyPrice'>X</button>
 </view>

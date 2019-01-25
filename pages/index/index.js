@@ -73,5 +73,13 @@ Page({
         })
       }
     })
+  },  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    var merchant = getApp().globalData.merchantId;
+    return {
+      path: '/pages/index/index?merchantId=' + merchant
+    }
   },
 })

@@ -73,13 +73,6 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   getList() {
     http('getMVipType', 'POST').then(res => {
       if (res.errCode == 0) {
@@ -103,7 +96,7 @@ Page({
     var disabled1Name = 'disabled1Array[' + id + ']';
     var disabled2Name = 'disabled2Array[' + id + ']';
     this.setData({
-      [numberName]: this.data.numberArray[id] >= 10000 ? 10000 : number + 100,
+      [numberName]: this.data.numberArray[id] >= 10000 ? 10000 : number + 50,
         [disabled1Name]: this.data.numberArray[id] >= 0 ? false : true,
       [disabled2Name]: this.data.numberArray[id] >= 10000 ? true : false,
       clickTime: this.data.clickTime + 1
@@ -117,7 +110,7 @@ Page({
     var disabled1Name = 'disabled1Array[' + id + ']';
     var disabled2Name = 'disabled2Array[' + id + ']';
     this.setData({
-      [numberName]: this.data.numberArray[id] <= 0 ? 0 : number - 100,
+      [numberName]: this.data.numberArray[id] <= 0 ? 0 : number - 50,
       [disabled1Name]: this.data.numberArray[id] <= 0 ? true : false,
       [disabled2Name]: this.data.numberArray[id] <= 10000 ? false : true,
       clickTime: this.data.clickTime + 1,
@@ -125,6 +118,13 @@ Page({
     this.getCountPrice(this.data.clickTime,e);
   }, 
   getCountPrice(clickTime,e) {
+    var t = 0;
+    for (var i in this.data.numberArray) {
+      t = t + this.data.numberArray[i]
+    }
+    if (t <= 0) {
+      return;
+    }
     var that = this;
     setTimeout(function(){
       var last = that.data.clickTime;
@@ -165,6 +165,17 @@ Page({
     }, 1000);
   },
   goWholesale(){
+    var t = 0;
+    for (var i in this.data.numberArray) {
+      t = t + this.data.numberArray[i]
+    }
+    if (t <= 0) {
+      wx.showToast({
+        title: "请输入数量",
+        icon: 'none'
+      })
+      return;
+    }
     var that = this;
     let params = {
       number: that.data.numberArray,

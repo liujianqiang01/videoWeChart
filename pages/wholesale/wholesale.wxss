@@ -73,7 +73,7 @@ button::after{
  margin-left:30px;
  font-size:34rpx;
  margin-top:6px;
- width:290px;
+ width:80%;
 }
 .payNow{
   padding: 10rpx;

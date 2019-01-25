@@ -13,7 +13,13 @@ Page({
       menchantName:null,
       menchantAddr:null,
       mobile:null
-    }
+    },
+     applyPrice: {
+      monthCardPrice: 0,
+      seasonCardPrice: 0,
+      yearCardPrice: 0
+    },
+    applyPriceHidden : true
   },
   onShow: function () {
     this.setData({
@@ -74,6 +80,32 @@ Page({
       [key]: value.Trim()
     })
   },
+  bindApplyPrice(e) {
+    let name = e.currentTarget.dataset.name
+    let value = e.detail.value
+    let key = `applyPrice.${name}`
+    this.setData({
+      [key]: value.Trim()
+    })
+  },
+  saveApplyPrice(e) {
+    http('merchant/applyPrice', 'POST', this.data.applyPrice).then(res => {
+      if (res.errCode == 0) {
+        wx.showToast({
+          title: '提交成功',
+          icon: 'none'
+        })
+        this.setData({
+          applyPriceHidden: true
+      })     
+      }else{
+        wx.showToast({
+          title: '申请失败',
+          icon: 'none'
+        })
+      }
+      })
+  },
   saveMes(){
     let noNUll=true
     for (let key in this.data.merchantMes){
@@ -115,6 +147,16 @@ Page({
       updataMer: true
     })
   },
+  applyPrice() {
+    this.setData({
+      applyPriceHidden: false,
+    })
+  },
+  closeApplyPrice() {
+    this.setData({
+      applyPriceHidden: true,
+    })
+  },
   wholesale() {
     wx.navigateTo({
       url: '../../pages/wholesale/wholesale'
@@ -145,6 +187,10 @@ Page({
             icon: 'none'
           })
         } else {
+          wx.showToast({
+            title: '提交成功',
+            icon: 'none'
+          })
           this.setData({
             applyReason: true
           })

@@ -24,6 +24,7 @@ App({
               that.globalData.token = res.data.token
               that.globalData.userType = res.data.userType
               that.globalData.showPay = res.data.showPay
+              that.globalData.merchantId = res.data.merchantId
               if (that.getTokenAfter) {
                 that.getTokenAfter()
               }
@@ -38,6 +39,7 @@ App({
     token: null,
     alearGetUserMes: false,
     userType: null,
-    showPay: false
+    showPay: false,
+    merchantId:null
   }
 })
