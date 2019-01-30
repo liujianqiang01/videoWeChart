@@ -23,8 +23,17 @@
     <view class='fr chenge money'>申请</view>
   </view>
   <view class='listItem'>
-    <button class='contact' bindtap='help'>下载地址</button>
+    <button class='contact' bindtap='help' data-url='https://filmunion.com.cn/video/html/videohelp.html'>帮助中心</button>
      <image src='/image/help.png' class='more'></image>
+  </view>
+    <view class='listItem'>
+    <button class='contact' bindtap='help' data-url='https://ht.cocos4dx.com/'>立即下载</button>
+  </view>
+      <view class='listItem'>
+    <button class='contact' bindtap='help' data-url='https://mp.weixin.qq.com/s/GxnRBOBCgQUkq1_eZluuOg'>产品介绍</button>
+  </view>
+        <view class='listItem'>
+    <button class='contact' bindtap='help' data-url='https://mp.weixin.qq.com/s/QqVlgxhAw8ve3eJf4OMO_Q'>安装教程</button>
   </view>
   <view class='listItem'>
     <button open-type='contact' class='contact'>联系客服</button>

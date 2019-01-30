@@ -40,6 +40,7 @@ App({
     alearGetUserMes: false,
     userType: null,
     showPay: false,
-    merchantId:null
+    merchantId:null,
+    skipUrl : ""
   }
 })

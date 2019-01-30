@@ -1,3 +1,2 @@
 <!--pages/help/help.wxml-->
-<text>pages/help/help.wxml</text>
-<web-view src="https://filmunion.com.cn/video/html/videohelp.html"></web-view>
+<web-view src="{{skipUrl}}"></web-view>

@@ -1,5 +1,5 @@
-//let baseUrl ='https://filmunion.com.cn/video/'
-let baseUrl ='https://test.filmunion.com.cn/video/'
+let baseUrl ='https://filmunion.com.cn/video/'
+//let baseUrl ='https://test.filmunion.com.cn/video/'
 //let baseUrl = 'http://localhost:8080/'
 module.exports = function (url, method,data ) {
   let meth = method.toUpperCase()

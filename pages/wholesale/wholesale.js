@@ -245,7 +245,8 @@ Page({
       })
       return;
     }
-    var baseUrl = 'https://test.filmunion.com.cn/video/wholesaleOrder/excelDownload';
+    var baseUrl = 'https://filmunion.com.cn/video/wholesaleOrder/excelDownload';
+   //var baseUrl = 'http://localhost:8080/wholesaleOrder/excelDownload';
     var data = '?vipType=' + vipType + '&number=' + number;
     wx.downloadFile({
       url: baseUrl+data,
@@ -256,26 +257,29 @@ Page({
       success: function (res) {
         if (res.statusCode == 200){
           var filePath = res.tempFilePath;
-          wx.openDocument({
-            filePath: filePath,
-            fileType: 'xlsx',
-            success: function (res) {
-              console.log('打开文档成功')
-            },
-            fail: function (res) {
-              console.log(res);
-            },
-            complete: function (res) {
-              console.log(res);
-            }
-          })
+          var savedFilePath ="";
           wx.saveFile({
             tempFilePath: res.tempFilePath,
             success: function (result) {
-              var savedFilePath = res.tempFilePath
+              savedFilePath = result.savedFilePath
               console.log(savedFilePath)
+              wx.openDocument({
+                filePath: savedFilePath,
+                fileType: 'xlsx',
+                success: function (res) {
+                  console.log('打开文档成功')
+                },
+                fail: function (res) {
+                  console.log(res);
+                },
+                complete: function (res) {
+                  console.log(res);
+                }
+              })
             }
           })
+          
+         
         }else{
           wx.showToast({
             title: '请先采购',

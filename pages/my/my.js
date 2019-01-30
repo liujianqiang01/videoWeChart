@@ -22,6 +22,7 @@ Page({
     applyPriceHidden : true
   },
   onShow: function () {
+    this.getMerchantInfo()
     this.setData({
       showPay : getApp().globalData.showPay
     })
@@ -31,8 +32,16 @@ Page({
       getApp().getTokenAfter = this.getList
     }
   },
+  getMerchantInfo(){
+    http('merchant/getMerchant', 'POST').then(res => {
+      if (res.errCode == 0) {
+        if(res.data.mobile == null){
+          this.changeMes()
+        }
+      }
+    })
+  },
   getTokenAfter(){
-   
     if (getApp().globalData.userType == 1) {
       http('order/getEarnings', 'POST').then(res => {
         if (res.errCode == 0) {
@@ -65,7 +74,10 @@ Page({
       })
     }
   },
-  help : function(){
+  help : function(e){
+    let url = e.currentTarget.dataset.url
+    console.log(url)
+    getApp().globalData.skipUrl = url
     wx.navigateTo({
       title: "下载地址",
       url: '../../pages/help/help'
@@ -179,6 +191,7 @@ Page({
         icon: 'none'
       })
     } else {
+      
       let param = { reason: this.data.reason}
       http('login/apply', 'POST', param).then(res => {
         if (res.errCode != 0) {
