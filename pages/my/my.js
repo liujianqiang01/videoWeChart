@@ -19,7 +19,10 @@ Page({
       seasonCardPrice: 0,
       yearCardPrice: 0
     },
-    applyPriceHidden : true
+    applyPriceHidden : true,
+    imgurl:null,
+    maHidden:true
+
   },
   onShow: function () {
     this.getMerchantInfo()
@@ -217,5 +220,41 @@ Page({
     this.setData({
       reason: value.Trim()
     })
-  }
+  },
+  erWeiMa(){
+    var that = this
+    var merchant = getApp().globalData.merchantId;
+    wx.request({
+      // 获取token
+      url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential',
+      data: {
+        appid: 'wx4ff803a9d7c7f8ff',
+        secret: 'd48f8005f7ab92421b8ee9b8604dbc75'
+      },
+      success(res) {
+        wx.request({
+          // 调用接口C
+          url: 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=' + res.data.access_token,
+          method: 'POST',
+          responseType: 'arraybuffer',
+          data: {
+            "path": '/pages/index/index?merchantId=' + merchant,
+            "width": 280
+          },
+          success(res) {
+            var base64 = wx.arrayBufferToBase64(res.data);
+            that.setData({
+               imgurl: "data:image/PNG;base64," + base64,
+              maHidden:false
+                })
+          }
+        })
+      }
+  })
+  }, 
+  closeMa() {
+    this.setData({
+      maHidden: true
+    })
+  },
 })

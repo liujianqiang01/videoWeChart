@@ -1,6 +1,9 @@
 <view class='user'>
   <open-data type="userAvatarUrl" class='img fl'></open-data>
   <open-data type="userNickName"  class='fl'></open-data>
+  <view bindtap='erWeiMa'> 
+    <image src='/image/erweima.png' class='erweima'></image>
+  </view>
 </view>
 
 <view class='list'>
@@ -69,4 +72,10 @@
   <view class='inputMes'><text class='fl'>年卡:</text><input class='fl' placeholder='0.00' bindinput='bindApplyPrice' data-name='yearCardPrice'/></view>
   <button bindtap='saveApplyPrice'>申请</button>
   <button class='close'  bindtap='closeApplyPrice'>X</button>
+</view>
+
+<!-- 二维码 -->
+<view class='erweimaView' hidden='{{maHidden}}'>
+<image  src='{{imgurl}}' style="width:250px;height:250px;"></image>
+  <button class='close'bindtap='closeMa'>X</button>
 </view>
