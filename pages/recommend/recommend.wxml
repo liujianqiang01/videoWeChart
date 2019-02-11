@@ -1,0 +1,5 @@
+<!--pages/recommend/recommend.wxml-->
+<view>
+<image src="{{images[0]}}" class='shopping' bindtap="previewImage"></image>
+ <image src="{{images[1]}}" class='shopping'></image>
+</view>

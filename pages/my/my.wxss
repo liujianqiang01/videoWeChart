@@ -12,14 +12,14 @@
   margin-right: 30rpx;
 }
 .list {
-  line-height: 86rpx;
+  line-height: 80rpx;
   margin-left: 30rpx;
   font-size:30rpx;
 }
 .listItem{
   position: relative;
   border-bottom: 1px solid #eee;
-  height: 86rpx;
+  height: 80rpx;
 }
 .contact{
   background: #fff;
@@ -126,6 +126,7 @@
   height: 44rpx;
   right:40rpx;
   top:6%;
+    font-size: 14rpx;
 }
 .erweimaView{
   position: fixed;

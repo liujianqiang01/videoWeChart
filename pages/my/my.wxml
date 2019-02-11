@@ -2,6 +2,7 @@
   <open-data type="userAvatarUrl" class='img fl'></open-data>
   <open-data type="userNickName"  class='fl'></open-data>
   <view bindtap='erWeiMa'> 
+   <view class='fr money'>推广码:</view>
     <image src='/image/erweima.png' class='erweima'></image>
   </view>
 </view>
@@ -42,7 +43,11 @@
     <button open-type='contact' class='contact'>联系客服</button>
     <image src='/image/customer.png' class='more'></image>
   </view>
+    <view wx:if='{{showPay}}' class='listItem' bindtap='recommend'>友情推荐
+    <image src='/image/recommend.png' class='more'></image>
+  </view>
 </view>
+
 <nav />
 <!-- 修改商户信息 -->
 <view class='merMes' hidden='{{updataMer}}'>

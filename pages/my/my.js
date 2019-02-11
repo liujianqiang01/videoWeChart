@@ -177,6 +177,11 @@ Page({
       url: '../../pages/wholesale/wholesale'
     })
   },
+  recommend() {
+    wx.navigateTo({
+      url: '../../pages/recommend/recommend'
+    })
+  },
   applyFor() {
     this.setData({
       applyReason: false,
