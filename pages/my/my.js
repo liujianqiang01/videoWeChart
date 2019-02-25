@@ -248,10 +248,7 @@ Page({
           },
           success(res) {
             var base64 = wx.arrayBufferToBase64(res.data);
-            that.setData({
-               imgurl: "data:image/PNG;base64," + base64,
-              maHidden:false
-                })
+            that.sendImage(base64)
           }
         })
       }
@@ -262,4 +259,17 @@ Page({
       maHidden: true
     })
   },
+  sendImage(image){
+    http('merchant/saveImage', 'POST', {image:image}).then(res => {
+      var path ='https://filmunion.com.cn/video/image/erweima/'
+      if (res.errCode == 0) {
+        path = path + res.data
+        this.setData({
+          imgurl: path,
+          maHidden: false
+        })
+      }
+    })
+  }
+  
 })
