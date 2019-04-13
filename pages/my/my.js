@@ -225,51 +225,61 @@ Page({
     this.setData({
       reason: value.Trim()
     })
-  },
-  erWeiMa(){
-    var that = this
-    var merchant = getApp().globalData.merchantId;
-    wx.request({
-      // 获取token
-      url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential',
-      data: {
-        appid: 'wx4ff803a9d7c7f8ff',
-        secret: 'd48f8005f7ab92421b8ee9b8604dbc75'
-      },
-      success(res) {
-        wx.request({
-          // 调用接口C
-          url: 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=' + res.data.access_token,
-          method: 'POST',
-          responseType: 'arraybuffer',
-          data: {
-            "path": '/pages/index/index?merchantId=' + merchant,
-            "width": 280
-          },
-          success(res) {
-            var base64 = wx.arrayBufferToBase64(res.data);
-            that.sendImage(base64)
-          }
-        })
-      }
-  })
   }, 
   closeMa() {
     this.setData({
       maHidden: true
     })
   },
-  sendImage(image){
-    http('merchant/saveImage', 'POST', {image:image}).then(res => {
+  erWeiMa(){
+    http('merchant/saveImage', 'POST').then(res => {
       var path ='https://filmunion.com.cn/video/image/erweima/'
       if (res.errCode == 0) {
         path = path + res.data
+        this.saveImage(path)
         this.setData({
           imgurl: path,
           maHidden: false
         })
       }
     })
+  },
+  saveImage(imgSrc){
+  wx.downloadFile({
+    url: imgSrc,
+    success: function (res) {
+      console.log(res);
+      //图片保存到本地
+      wx.saveImageToPhotosAlbum({
+        filePath: res.tempFilePath,
+        success: function (data) {
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success',
+            duration: 2000
+          })
+        },
+        fail: function (err) {
+          console.log(err);
+          if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
+            console.log("当初用户拒绝，再次发起授权")
+            wx.openSetting({
+              success(settingdata) {
+                console.log(settingdata)
+                if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                  console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
+                } else {
+                  console.log('获取权限失败，给出不给权限就无法正常使用的提示')
+                }
+              }
+            })
+          }
+        },
+        complete(res) {
+          console.log(res);
+        }
+      })
+    }
+  })
   }
-  
 })

@@ -78,13 +78,14 @@ Component({
       
     },
     getUtil() {
+      var that = this;
       http('login/util', 'POST').then(res => {
         if (res.errCode == 0) {
-          this.setData({
+          that.setData({
             showPay: res.data.showPay
           })
         }
       })
     }
-  },
+  }
 })
